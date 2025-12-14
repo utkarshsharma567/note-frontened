@@ -26,19 +26,19 @@ useEffect(()=>{
 
 // create a note
 const createNote = async(note) => {
-    const res=await BACKEND_URL.post("/create",note)
+    const res=await BACKEND_URL.post("/api/v1/notes/create",note)
     setNotes([res.data,...notes])
 }
 
 // update a note
 const updateNote = async(id, updateNote) => {
-    const res=await BACKEND_URL.put(`/update/${id}`,updateNote)
+    const res=await BACKEND_URL.put(`/api/v1/notes/update/${id}`,updateNote)
     setNotes(notes.map((note)=>(note._id===id ? res.data : note)))
 }
 
 // delete a note
 const deleteNote = async(id) => {
-    await BACKEND_URL.delete(`/delete/${id}`)
+    await BACKEND_URL.delete(`/api/v1/notes/delete/${id}`)
     setNotes(notes.filter((note)=>(note._id!==id)))
 }
 
