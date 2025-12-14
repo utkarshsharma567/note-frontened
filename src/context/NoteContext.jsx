@@ -11,7 +11,7 @@ const [loading, setLoading] = useState(true);
 const getNotes = async() => {
     setLoading(true);
     try {
-        const response = await BACKEND_URL.get("/get-notes");
+        const response = await BACKEND_URL.get("/api/v1/notes/get-notes");
         setNotes(response.data);
     } catch (error) {
         console.error("Error fetching notes:", error);
